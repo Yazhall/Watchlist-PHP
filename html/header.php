@@ -10,22 +10,27 @@
 </head>
 <body>
 <header class="header">
-    <div>
-        <img src="" alt="">
+    <div class="icon-container">
+        <a href="../PHP/Home_page.php">
+            <img src="/image/movie_11970806.png" alt="icone du site" class="icon_site">
+        </a>
     </div>
-    <div>
-        <a href="../PHP/Home_page.php"> <img src="../image/movie_11970806.png" alt="icone du site " class="icon_site"></a>
-    </div>
-    <div>
-        <h1 class="title_site"> <a href="../PHP/Home_page.php" class="liens">WatchList Film </a></h1>
 
+    <div class="title-container">
+        <h1 class="title_site">
+            <a href="../PHP/Home_page.php" class="liens">WatchList Film</a>
+        </h1>
     </div>
+
     <nav class="options_header">
-        <a href="../PHP/connexion.php" class="liens">CONNEXION</a>
-
-        <a href="../PHP/Inscription.php" class="liens">INSCRIPTION</a>
+        <?php if (isset($_SESSION['username'])) : ?>
+            <a href="../PHP/dashboard.php" class="liens">DASHBOARD</a>
+            <a href="../PHP/logout.php" class="liens">DÉCONNEXION</a>
+        <?php else : ?>
+            <a href="../PHP/connexion.php" class="liens">CONNEXION</a>
+            <a href="../PHP/Inscription.php" class="liens">INSCRIPTION</a>
+        <?php endif; ?>
     </nav>
 </header>
-
 </body>
 </html>

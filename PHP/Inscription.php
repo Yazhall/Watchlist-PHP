@@ -1,6 +1,35 @@
 <?php
+require_once 'Fonction.php';
+try {
 
 
+$pdo = connectDB();
+$message = '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = trim($_POST["firstname"] ?? '');
+    $lastname = trim($_POST["lastname"] ?? '');
+    $tel = trim($_POST["tel"] ?? '');
+    $username = trim($_POST["username"] ?? '');
+    $email = trim($_POST["email"] ?? '');
+    $password = trim($_POST["password"] ?? '');
+
+        if (empty($firstname) || empty($lastname) || empty($tel) || empty($username) || empty($email ||empty($password) )) {
+            $message = ' Veuillez remplir tous les champs';
+        } else {
+            if (createUser($firstname, $lastname,$tel, $username, $email, $password)) {
+                $message = '✅ Inscription réussie';
+            } else {
+                $message = '❌ Une erreur est survenue';
+            }
+        }
+
+
+}
+}catch (PDOException $e){
+    $errorMessage = urlencode($e->getMessage());
+    header('Location:inscription.php?errorMessage='.$errorMessage);
+    exit;
+}
 ?>
 
 <?php
@@ -18,12 +47,13 @@
     <title>Acceuil</title>
 </head>
 <body>
+<div class="wrapper">
 <?php
-include_once '..\html\header.php';
-include_once '..\html\formulaire-inscription.php';
-include_once '..\html\footer.php';
+include_once '../html/header.php';
+include_once '../html/formulaire-inscription.php';
+include_once '../html/footer.php';
 ?>
-
+</div>
 
 
 </body>

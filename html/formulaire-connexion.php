@@ -8,28 +8,24 @@
     <link rel="stylesheet" href="../CSS/Style.css">
     <title>Connexion</title>
 </head>
-<body>
+<body >
 <main class="main">
-    <div class="main_container_img">
-        <img src="../image/movie-background-collage.jpg" class="backgroud_image" alt="">
-    </div>
     <div>
         <img src="" alt="" class="">
     </div>
     <div>
-        <form method="post" class="formulaire">
-            <label for="Username">
-                <input type="text" name="Username" placeholder="Username">
-            </label>
-            <label for="email">
-                <input type="email" name="email" placeholder="email">
+        <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+        <form method="post" action="../PHP/connexion.php" class="formulaire">
+            <label for="identifiant">
+                <input type="text" name="identifiant" placeholder="Nom d'utilisateur ou email">
             </label>
             <label for="password">
                 <input type="password" name="password" placeholder="password">
             </label>
-            <input type="submit">
+            <input type="submit" value="Connexion" >
         </form>
     </div>
+
 
 </main>
 </body>

@@ -8,28 +8,26 @@
     <link rel="stylesheet" href="../CSS/Style.css">
     <title>Inscription</title>
 </head>
-<body>
+<body >
 <main class="main">
-    <div class="main_container_img">
-        <img src="../image/movie-background-collage.jpg" class="backgroud_image" alt="">
-    </div>
+
     <div>
         <img src="" alt="" class="">
     </div>
     <div>
         <form method="post" class="formulaire">
 
-            <label for="Firstname">
-                <input type="text" name="Firstname" placeholder="Firstname">
+            <label for="firstname">
+                <input type="text" name="firstname" placeholder="firstname">
             </label>
-            <label for="Lastname">
-                <input type="text" name="Lastname" placeholder="Lastname">
+            <label for="lastname">
+                <input type="text" name="lastname" placeholder="lastname">
             </label>
             <label for="tel">
                 <input type="tel" name="tel" placeholder="tel">
             </label>
-            <label for="Username">
-                <input type="text" name="Username" placeholder="Username">
+            <label for="username">
+                <input type="text" name="username" placeholder="username">
             </label>
             <label for="email">
                 <input type="email" name="email" placeholder="email">
@@ -40,6 +38,14 @@
             <input type="submit">
         </form>
     </div>
+    <?php if (!empty($message)) : ?>
+        <p class="message" style="color: <?= str_starts_with($message, '✅') ? 'green' : 'red' ?>;">
+            <?= htmlspecialchars($message) ?>
+        </p>
+    <?php endif; ?>
+    <?php if (isset($_GET['error'])): ?>
+        <p style="color: red;">❌ Erreur : <?= htmlspecialchars($_GET['error']) ?></p>
+    <?php endif; ?>
 
 </main>
 </body>

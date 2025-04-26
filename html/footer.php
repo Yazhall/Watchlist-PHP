@@ -10,14 +10,16 @@
     <title>Acceuil</title>
 </head>
 <body>
+
 <footer class="footer">
 
     <div>
-        <a class="icons_footer" href=" "> <img src="../image/instagram.png" alt="Instagram" class="liens"> </a>
-        <a class="icons_footer" href=""> <img src="../image/twitter.png" alt="twitter/X" class="liens"> </a>
-        <a class="icons_footer" href=""> <img src="../image/github.png" alt="Github" class="liens"> </a>
+        <a class="icons_footer" href=" "> <img src="/image/instagram.png" alt="Instagram" class="liens"> </a>
+        <a class="icons_footer" href=""> <img src="/image/twitter.png" alt="twitter/X" class="liens"> </a>
+        <a class="icons_footer" href=""> <img src="/image/github.png" alt="Github" class="liens"> </a>
     </div>
 
 </footer>
+
 </body>
 </html>
