@@ -9,20 +9,28 @@ if (!(isset($_SESSION['username']))) {
 }
 
 $userID = $_SESSION['id'];
+$categories = get_all_categories();
 
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $moviebypage = 5 ;
 $start = ($page - 1) * $moviebypage;
 
 $totalMovies = count_all_movies();
+
+$selectedCategory = $_GET['category'] ?? null;
+
+if ($selectedCategory) {
+    $catalogueMovies = display_movies_by_category($selectedCategory, $start, $moviebypage);
+    $totalMovies = count_movies_by_category($selectedCategory);
+}else{
+    $catalogueMovies =display_all_movie($start, $moviebypage);
+    $totalMovies = count_all_movies();
+}
 $totalPages = ceil($totalMovies / $moviebypage);
-$catalogueMovies = display_all_movie($start, $moviebypage);
 
 $message = '';
 
-if ($userID) {
-    $catalogueMovies = display_all_movie($start, $moviebypage);
-}
+
 
 if (isset($_POST['ajouter']) && isset($_POST['movie_id'])) {
     $movieID = $_POST['movie_id'];
@@ -36,7 +44,7 @@ if (isset($_POST['ajouter']) && isset($_POST['movie_id'])) {
         $message = 'Le film n\'a pas pu être ajouté à votre watchlist, il est peut-être déjà présent.';
     }
 
-    header("location: catalogue_film.php?message=" . urlencode($message));
+    header("location: catalogue_film.php?message=" . urlencode($message) . "&category=" . urlencode($selectedCategory) . "&page=" . $page);
     exit;
 }
 

@@ -24,9 +24,17 @@
 
     <nav class="options_header">
         <?php if (isset($_SESSION['username'])) : ?>
+            <!-- Si l'utilisateur est connecté, afficher ces liens -->
             <a href="../PHP/dashboard.php" class="liens">DASHBOARD</a>
             <a href="../PHP/logout.php" class="liens">DÉCONNEXION</a>
+
+            <!-- Vérifier si l'utilisateur est l'administrateur -->
+            <?php if ($_SESSION['id'] == 1) : ?>
+                <a href="../PHP/gestion_bdd_by_admin.php" class="liens">GESTION BDD FILMS</a>
+            <?php endif; ?>
+
         <?php else : ?>
+            <!-- Si l'utilisateur n'est pas connecté, afficher ces liens -->
             <a href="../PHP/connexion.php" class="liens">CONNEXION</a>
             <a href="../PHP/Inscription.php" class="liens">INSCRIPTION</a>
         <?php endif; ?>

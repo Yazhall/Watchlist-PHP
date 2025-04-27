@@ -4,6 +4,8 @@ session_start();
      header("location: home_page.php");
      exit ;
  }
+
+ $showdashboard =true ;
 ?>
 
 <html lang="fr">
