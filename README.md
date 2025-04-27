@@ -15,6 +15,8 @@
    - dans le dossier du projet il y a un sous dossier qui se nomme BDD clique droite dessus et ouvre un terminal 
    - une fois le terminal ouvert lance cette commande ->  docker-compose up -d   / ça devrait créer le conteneur et le remplir avec le fichier  dump.sql
    - dernier étape  Accède au conteneur MariaDB avec cette commande -> docker exec -it mariadb_db mysql -u root -p
+
+!! si ca ne marche pas je join le dossier complet de la BDD a installer le dossier s'appel  "MovieSave" !!!
     
 
 
